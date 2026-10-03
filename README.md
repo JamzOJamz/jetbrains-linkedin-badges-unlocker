@@ -6,9 +6,9 @@ for its IDEs connects to LinkedIn and awards proficiency badges.
 
 The included Python script opens a LinkedIn sign-in page, receives the
 authorization callback on `localhost`, and uses the connected-app flow to
-submit selected JetBrains proficiency badges. You can choose the IDEs,
-proficiency levels, display order, and optional top-user percentile from the
-command line or from a JSON configuration file.
+submit selected JetBrains proficiency badges to your profile. You can
+choose the IDEs, proficiency levels, display order, and optional top-user
+percentile from the command line or from a JSON configuration file.
 
 This is not a JetBrains or LinkedIn product, and it does not install or use
 the JetBrains IDEs. It is an experiment for learning how the plugin's
