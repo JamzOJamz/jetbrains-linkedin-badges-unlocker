@@ -1,8 +1,8 @@
 {
   "badges": [
-    { "ide": "rider", "level": "4-coding" },
-    { "ide": "webstorm", "level": "3-coding" },
-    { "ide": "goland", "level": "1" },
-    { "ide": "clion", "level": "1" }
+    { "ide": "intellij-idea", "level": "5-coding-and-ai" },
+    { "ide": "pycharm", "level": "3-coding" },
+    { "ide": "phpstorm", "level": "2" },
+    { "ide": "rustrover-a-ide", "level": "1" }
   ]
 }

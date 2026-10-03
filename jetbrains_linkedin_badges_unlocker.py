@@ -488,6 +488,8 @@ def main():
 
     access_token, external_id = exchange_authorization_code(result["code"])
     external_id = args.external_id or config_external_id or external_id
+    if DEBUG_API:
+        print(f"[debug] External ID: {external_id}")
     print("Access token obtained successfully.")
 
     for (product_vanity_name, default_template_id), percentile, level in reversed(
