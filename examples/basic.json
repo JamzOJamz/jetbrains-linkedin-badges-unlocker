@@ -1,0 +1,8 @@
+{
+  "level": "3-coding-and-ai",
+  "badges": [
+    "rider",
+    { "ide": "webstorm", "level": "4-coding" },
+    { "ide": "pycharm", "level": "2", "topPercentile": 10 }
+  ]
+}

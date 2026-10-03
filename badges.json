@@ -1,0 +1,8 @@
+{
+  "badges": [
+    { "ide": "rider", "level": "4-coding" },
+    { "ide": "webstorm", "level": "3-coding" },
+    { "ide": "goland", "level": "1" },
+    { "ide": "clion", "level": "1" }
+  ]
+}
