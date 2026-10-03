@@ -2,16 +2,7 @@
 
 This project is a reverse-engineering experiment exploring how JetBrains'
 [LinkedIn Connected Apps plugin](https://plugins.jetbrains.com/plugin/32011-linkedin-connected-apps)
-for JetBrains IDEs connects to LinkedIn and submits profile entries. For more
-information, read the plugin documentation for each IDE ([IntelliJ IDEA](https://www.jetbrains.com/help/idea/linkedin-connected-apps.html),
-[PyCharm](https://www.jetbrains.com/help/pycharm/linkedin-connected-apps.html),
-[PhpStorm](https://www.jetbrains.com/help/phpstorm/linkedin-connected-apps.html),
-[Rider](https://www.jetbrains.com/help/rider/linkedin-connected-apps.html),
-[CLion](https://www.jetbrains.com/help/clion/linkedin-connected-apps.html),
-[GoLand](https://www.jetbrains.com/help/go/linkedin-connected-apps.html),
-[RustRover](https://www.jetbrains.com/help/rustrover/linkedin-connected-apps.html),
-[WebStorm](https://www.jetbrains.com/help/webstorm/linkedin-connected-apps.html),
-[RubyMine](https://www.jetbrains.com/help/rubymine/linkedin-connected-apps.html)).
+for JetBrains IDEs connects to LinkedIn and submits profile entries.
 
 The included Python script opens a LinkedIn sign-in page, receives the
 authorization callback on `localhost`, and uses the connected-app flow to
