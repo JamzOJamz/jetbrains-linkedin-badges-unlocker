@@ -2,7 +2,7 @@
 
 This project is a reverse-engineering experiment exploring how JetBrains'
 [LinkedIn Connected Apps plugin](https://plugins.jetbrains.com/plugin/32011-linkedin-connected-apps)
-for JetBrains IDEs connects to LinkedIn and submits profile entries.
+for its IDEs connects to LinkedIn and submits profile entries.
 
 The included Python script opens a LinkedIn sign-in page, receives the
 authorization callback on `localhost`, and uses the connected-app flow to
