@@ -21,8 +21,11 @@ review the settings carefully before running it.
 
 - [`jetbrains_linkedin_badges_unlocker.py`](./jetbrains_linkedin_badges_unlocker.py):
   the command-line script.
-- [`badges.json`](./badges.json): an example configuration used by default.
-- [`examples/`](./examples/): additional configuration examples.
+- [`badges.json`](./badges.json): the default badge configuration.
+- [`examples/shared-defaults.json`](./examples/shared-defaults.json): an
+  example using shared settings with per-badge exceptions.
+- [`examples/maxed.json`](./examples/maxed.json): an example applying the
+  highest level and top-user percentile to every IDE.
 - [`DISCLAIMER.md`](./DISCLAIMER.md): important warnings and responsible-use
   information.
 
@@ -94,8 +97,8 @@ python jetbrains_linkedin_badges_unlocker.py --only rider clion
 # Use one level for every selected product
 python jetbrains_linkedin_badges_unlocker.py --level 3-coding
 
-# Load a different configuration file
-python jetbrains_linkedin_badges_unlocker.py --config examples/basic.json
+# Load an example with shared settings and per-badge exceptions
+python jetbrains_linkedin_badges_unlocker.py --config examples/shared-defaults.json
 
 # Print redacted API responses while troubleshooting
 python jetbrains_linkedin_badges_unlocker.py --debug-api
