@@ -63,6 +63,28 @@ The browser will open for LinkedIn authorization. After approval, the local
 callback server exchanges the authorization code and submits the configured
 entries.
 
+To override the derived external ID, pass it on the command line:
+
+```bash
+python jetbrains_linkedin_badges_unlocker.py --external-id "your-external-id"
+```
+
+When using a JSON configuration file, you can instead add a top-level
+`externalId` string:
+
+```json
+{
+  "externalId": "your-external-id",
+  "badges": [
+    { "ide": "rider", "level": "4-coding" }
+  ]
+}
+```
+
+The command-line value takes precedence over the configuration value. If
+neither is supplied, the script derives a stable external ID from the LinkedIn
+identity token as before.
+
 Useful options include:
 
 ```bash

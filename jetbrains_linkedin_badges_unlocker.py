@@ -138,9 +138,17 @@ def external_id_from_id_token(id_token):
     if not isinstance(subject, str) or not subject:
         raise ValueError("the ID token did not contain a usable subject")
 
-    return hashlib.sha256(
+    digest = hashlib.sha256(
         f"{EXTERNAL_ID_NAMESPACE}{subject}".encode("utf-8")
-    ).hexdigest()[:25]
+    ).digest()
+    alphabet = "0123456789abcdefghijklmnopqrstuvwxyz"
+    number = int.from_bytes(digest, "big") % (len(alphabet) ** 25)
+    external_id = []
+    for _ in range(25):
+        number, remainder = divmod(number, len(alphabet))
+        external_id.append(alphabet[remainder])
+
+    return "".join(reversed(external_id))
 
 
 def exchange_authorization_code(code):
@@ -311,6 +319,11 @@ def parse_args():
         help=f"Badge level to use for every IDE (default: {DEFAULT_LEVEL}).",
     )
     parser.add_argument(
+        "--external-id",
+        metavar="ID",
+        help="Override the external ID sent to LinkedIn.",
+    )
+    parser.add_argument(
         "--config",
         metavar="FILE",
         help=(
@@ -370,8 +383,7 @@ def percentile_from(value, where):
     return value
 
 
-def load_config(path, default_percentile, default_level):
-    """Return [(signal, percentile_or_None, level)] in display order."""
+def read_config(path):
     try:
         with open(path, encoding="utf-8") as file:
             config = json.load(file)
@@ -382,6 +394,21 @@ def load_config(path, default_percentile, default_level):
         config = {"badges": config}
     if not isinstance(config, dict) or not isinstance(config.get("badges"), list):
         raise ValueError('config must contain a "badges" list')
+    return config
+
+
+def external_id_from_config(config):
+    external_id = config.get("externalId")
+    if external_id is None:
+        return None
+    if not isinstance(external_id, str) or not external_id:
+        raise ValueError("top level: externalId must be a non-empty string")
+    return external_id
+
+
+def load_config(path, default_percentile, default_level):
+    """Return [(signal, percentile_or_None, level)] in display order."""
+    config = read_config(path)
 
     default = default_percentile
     if "topPercentile" in config:
@@ -437,6 +464,7 @@ def main():
     if config_path:
         print(f"Using config: {config_path}")
         try:
+            config_external_id = external_id_from_config(read_config(config_path))
             entries = load_config(config_path, top_percentile, args.level)
         except ValueError as error:
             print(f"Error: {error}", file=sys.stderr)
@@ -446,6 +474,7 @@ def main():
             (signal, top_percentile, args.level)
             for signal in selected_signals(args.priority, args.only)
         ]
+        config_external_id = None
 
     print("Opening browser:")
     print(auth_url)
@@ -458,6 +487,7 @@ def main():
     print("Authorization completed successfully.")
 
     access_token, external_id = exchange_authorization_code(result["code"])
+    external_id = args.external_id or config_external_id or external_id
     print("Access token obtained successfully.")
 
     for (product_vanity_name, default_template_id), percentile, level in reversed(
