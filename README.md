@@ -32,10 +32,10 @@ review the settings carefully before running it.
 - Python 3
 - A LinkedIn account
 - The Python packages listed in [`requirements.txt`](./requirements.txt)
-- A valid `JETBRAINS_PLUGIN_SECRET` value supplied through the environment.
-  This value was recovered during the reverse-engineering work but is
-  intentionally not included in this repository. There is only one valid
-  value, so anyone running the experiment must obtain it independently.
+- The single valid `JETBRAINS_PLUGIN_SECRET` value, supplied through the
+  environment. It was recovered during the reverse-engineering work but is
+  intentionally not included in this repository, so anyone running the
+  experiment must obtain it independently.
 
 Install the packages in a virtual environment:
 
