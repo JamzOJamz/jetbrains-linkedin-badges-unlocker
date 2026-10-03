@@ -1,5 +1,11 @@
 # JetBrains LinkedIn Badges Unlocker
 
+> [!IMPORTANT]
+> This repository is a showcase of reverse-engineering work, not a ready-to-run
+> project. The plugin secret required to run the script is intentionally not
+> included; recovering it requires independently reproducing the relevant
+> reverse-engineering work.
+
 This project is a reverse-engineering experiment exploring how JetBrains'
 [LinkedIn Connected Apps plugin](https://plugins.jetbrains.com/plugin/32011-linkedin-connected-apps)
 for its IDEs connects to LinkedIn and awards proficiency badges.
@@ -32,10 +38,8 @@ review the settings carefully before running it.
 - Python 3
 - A LinkedIn account
 - The Python packages listed in [`requirements.txt`](./requirements.txt)
-- The single valid `JETBRAINS_PLUGIN_SECRET` value, supplied through the
-  environment. It was recovered during the reverse-engineering work but is
-  intentionally not included in this repository, so anyone running the
-  experiment must obtain it independently.
+- The `JETBRAINS_PLUGIN_SECRET` environment variable set to the single valid
+  value (not included in this repository).
 
 Install the packages in a virtual environment:
 
