@@ -35,7 +35,7 @@ review the settings carefully before running it.
 
 ## Requirements
 
-- Python 3
+- Python 3 (developed and tested with 3.14.7)
 - A LinkedIn account
 - The Python packages listed in [`requirements.txt`](./requirements.txt)
 - The `JETBRAINS_PLUGIN_SECRET` environment variable set to the single valid
