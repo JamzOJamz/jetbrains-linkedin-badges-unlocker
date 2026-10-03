@@ -1,10 +1,11 @@
 # JetBrains LinkedIn Badges Unlocker
 
-This project is a reverse-engineering experiment based on the LinkedIn
-Connected Apps feature described in the [JetBrains Rider
-documentation](https://www.jetbrains.com/help/rider/linkedin-connected-apps.html).
-It explores how the JetBrains plugin connects to LinkedIn and how the
-resulting profile entries are submitted.
+This project is a reverse-engineering experiment based on JetBrains' LinkedIn
+Connected Apps [plugin](https://plugins.jetbrains.com/plugin/32011-linkedin-connected-apps)
+for JetBrains IDEs, as described in the
+[documentation](https://www.jetbrains.com/help/idea/linkedin-connected-apps.html).
+This project explores how the plugin connects to LinkedIn and submits profile
+entries.
 
 The included Python script opens a LinkedIn sign-in page, receives the
 authorization callback on `localhost`, and uses the connected-app flow to
