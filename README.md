@@ -31,7 +31,10 @@ review the settings carefully before running it.
 - Python 3
 - A LinkedIn account
 - The Python packages listed in [`requirements.txt`](./requirements.txt)
-- A valid `JETBRAINS_PLUGIN_SECRET` value supplied through the environment
+- A valid `JETBRAINS_PLUGIN_SECRET` value supplied through the environment.
+  This value was recovered during the reverse-engineering work but is
+  intentionally not included in this repository. There is only one valid
+  value, so anyone running the experiment must obtain it independently.
 
 Install the packages in a virtual environment:
 
@@ -41,7 +44,8 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Set the required value without putting it in a file tracked by Git:
+After obtaining the secret value, set it without putting it in a file tracked
+by Git:
 
 ```bash
 export JETBRAINS_PLUGIN_SECRET="your-secret-value"
